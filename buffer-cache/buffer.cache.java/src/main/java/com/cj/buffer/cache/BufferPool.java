@@ -26,6 +26,31 @@ public class BufferPool {
     populateFreeList();
   }
 
+  private void createHashQueues() {
+    hashQueueHeaders = new BufferNode[HASHQUEUE_COUNT];
+    for (int i = 0; i < HASHQUEUE_COUNT; i++) {
+      hashQueueHeaders[i] = createQueue();
+    }
+  }
+
+  private BufferNode createQueue() {
+    BufferNode head = null;
+    BufferNode temp = null;
+    for (int i = 0; i < NODES_PER_HASH_QUEUE; i++) {
+      BufferNode newNode = new BufferNode();
+      if (head == null) {
+        head = newNode;
+        temp = head;
+      } else {
+        temp.setNextHashQueueNode(newNode);
+        newNode.setPreviousFreeListNode(temp);
+        temp = newNode;
+      }
+    }
+
+    return head;
+  }
+
   private void populateFreeList() {
 
     for (int i = 0; i < HASHQUEUE_COUNT; i++) {
@@ -51,31 +76,6 @@ public class BufferPool {
       freeListHeader.getPreviousFreeListNode().setNextFreeListNode(currentNode);
       freeListHeader.setPreviousFreeListNode(currentNode);
     }
-  }
-
-  private void createHashQueues() {
-    hashQueueHeaders = new BufferNode[HASHQUEUE_COUNT];
-    for (int i = 0; i < HASHQUEUE_COUNT; i++) {
-      hashQueueHeaders[i] = createQueue();
-    }
-  }
-
-  private BufferNode createQueue() {
-    BufferNode head = null;
-    BufferNode temp = null;
-    for (int i = 0; i < NODES_PER_HASH_QUEUE; i++) {
-      BufferNode newNode = new BufferNode();
-      if (head == null) {
-        head = newNode;
-        temp = head;
-      } else {
-        temp.setNextHashQueueNode(newNode);
-        newNode.setPreviousFreeListNode(temp);
-        temp = newNode;
-      }
-    }
-
-    return head;
   }
 
   public String getBufferPoolAsString() {
