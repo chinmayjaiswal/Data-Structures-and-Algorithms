@@ -13,13 +13,20 @@ import org.junit.Test;
 public class BufferPoolTest {
 
   @Test
-  public void setUp() {
+  public void BufferPoolInit_defaultDefaultSize_machesExpectedOutput() {
     BufferPool pool = new BufferPool();
     String bufferPoolAsString = pool.getBufferPoolAsString();
-    System.out.println(bufferPoolAsString);
-
     assertEquals(
-        getFileAsString("src/test/java/com/cj/buffer/cache/defaultBufferAsString.txt").trim(),
+        getFileAsString("src/test/java/com/cj/buffer/cache/defaultBufferAsString.txt"),
+        bufferPoolAsString);
+  }
+
+  @Test
+  public void BufferPoolInit_customSize_machesExpectedOutput() {
+    BufferPool pool = new BufferPool(2, 5);
+    String bufferPoolAsString = pool.getBufferPoolAsString();
+    assertEquals(
+        getFileAsString("src/test/java/com/cj/buffer/cache/customSizeBufferPool.txt"),
         bufferPoolAsString);
   }
 
@@ -29,6 +36,7 @@ public class BufferPoolTest {
       byte[] fileAsBytes = Files.readAllBytes(Paths.get(path));
       return new String(fileAsBytes);
     } catch (Exception e) {
+      e.printStackTrace();
       fail("An error occured while reading file + " + path);
     }
     return result;
@@ -37,10 +45,10 @@ public class BufferPoolTest {
   @SuppressWarnings("unused")
   private void writeStringInFile(String data, String path) {
     try {
-      Files.write(Paths.get(path), data.getBytes(), StandardOpenOption.APPEND);
+      Files.write(Paths.get(path), data.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
     } catch (IOException e) {
-      fail("An error occured while writing data in file ");
       e.printStackTrace();
+      fail("An error occured while writing data in file ");
     }
   }
 }
