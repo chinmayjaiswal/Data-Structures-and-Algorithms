@@ -2,8 +2,10 @@ package com.cj.buffer.cache;
 
 public class BufferNode {
 
-  private static int instanceCounter = 0;
-  private int debuggingId;
+  private static int instanceCounter = 0; // This field is for testing and debugging purpose only
+  private int nodeId; // This field is for testing and debugging purpose only
+
+  private byte[] data;
 
   private BufferNode nextHashQueueNode;
 
@@ -14,7 +16,7 @@ public class BufferNode {
   private BufferNode previousFreeListNode;
 
   public BufferNode() {
-    debuggingId = ++instanceCounter;
+    nodeId = ++instanceCounter;
   }
 
   public void setNextHashQueueNode(BufferNode node) {
@@ -49,8 +51,16 @@ public class BufferNode {
     this.previousFreeListNode = previousFreeListNode;
   }
 
+  public byte[] getData() {
+    return data;
+  }
+
+  public void setData(byte[] data) {
+    this.data = data;
+  }
+
   @Override
   public String toString() {
-    return "[" + debuggingId + "]";
+    return "[" + nodeId + "]";
   }
 }
