@@ -121,4 +121,15 @@ public class BufferPool {
     } while (temp != freeListHeader);
     return sb.toString();
   }
+
+  public BufferNode findBuffer(int deviceNumber, int blockNumber) {
+    BufferNode hashQueueHeader = hashQueueHeaders[hash(deviceNumber, blockNumber)];
+
+    return null;
+  }
+
+  private int hash(int deviceNumber, int blockNumber) {
+
+    return 0;
+  }
 }

@@ -36,7 +36,7 @@ public class FileIOSubSystem implements IOSubSystem {
         throw new IOException(
             "I/O operation failed. Invalid block number provided : [" + blockNumber + "]");
       }
-    } catch (InterruptedException e) { // TODO Auto-generated catch block
+    } catch (InterruptedException e) {
       Thread.interrupted();
       throw new IOException("I/O operation failed. Thread is interrupted " + e.getMessage(), e);
     }

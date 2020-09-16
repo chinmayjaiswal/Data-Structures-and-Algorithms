@@ -51,4 +51,16 @@ public class BufferPoolTest {
       fail("An error occured while writing data in file ");
     }
   }
+
+  // @Test
+  public void testWhileLoop() throws InterruptedException {
+    int count = 0;
+    int time = 0;
+    while (count < 2 * 60 * 5) {
+      Thread.sleep(500);
+      time = time + 500;
+      // int timeElapsed = (time) / (1000 * 60);
+      System.out.println("This is loop count #" + (++count) + " Time elapsed " + time);
+    }
+  }
 }
