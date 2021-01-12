@@ -5,3 +5,4 @@
 /buffer-cache/buffer.cache.java/target
 /buffer-cache/buffer.cache.java/bin
 .project
+.DS_Store
