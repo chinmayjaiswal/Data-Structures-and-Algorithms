@@ -1,0 +1,4 @@
+
+g++ fileName.cpp # compiles code and links and created executable file as a.out
+g++ ./basics/Hello.cpp -o ./basics/Hello # creates executable at given target location.
+./a.out #To execute object file.
