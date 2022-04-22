@@ -2,3 +2,37 @@
 g++ fileName.cpp # compiles code and links and created executable file as a.out
 g++ ./basics/Hello.cpp -o ./basics/Hello # creates executable at given target location.
 ./a.out #To execute object file.
+
+
+/*
+TODO:
+    1. C pointers workshop from youtube
+    2. session 1 video  from youtube link
+    3. session 2 video from youtube link
+         [done] array_of_ptrs_to_int.c
+         -> dynamic_array_of_ptrs_to_dynamic_integers.c
+                --> has exercise in this file
+    4. Session 3 [10-Apr]
+            exercise1: input_unspecified_numbers_of_integers
+            exercise2: vector_int
+            exercise3: vector_built_in_data_type
+            exercise4: vector_user_defined_data_type
+    5. Session 5: [16th-April]
+            exercise1: insertion_sort_basic_academic_implementation.c
+            exercise2: insert_at_sorting_pos.c
+            exercise3: insertion_sort_acceptable.c
+            exercise4: cpa_special_insertion_sort.c
+            exercise5: multifile_word_search.c
+    6. Session 6 [17th-April]
+            exercise1: recursive_functions_1.c
+            exercise2: recursive_functions_2.c
+            exercise3: controlling_recursive_calls.c
+            exercise4: Soln_p1.c
+            exercise5: Soln_P2_Way_1.c
+            exercise5: Soln_P2_Way_2.c
+            exercise6: Soln_P3.c
+            exercise7: Soln_P4_Way_1.c
+            exercise8: Soln_P4_Way_2.c
+            exercise9: Soln_P5.c
+            exercise10:Problem_7.c
+*/
